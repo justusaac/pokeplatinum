@@ -1,26 +1,9 @@
+# This must be moved here during the refactor to move all constants to metang.
+constgen_py = find_program('constgen_py', native: true)
+
 consts_manifest_basenames = [
-    'abilities',
-    'badges',
-    'battle',
-    'battle_subscripts',
-    'btlcmd',
-    'catching_show',
-    'game_records',
-    'gender',
-    'items',
-    'journal',
-    'map',
-    'movement',
-    'moves',
     'pokemon',
-    'poketch',
-    'scrcmd',
-    'sdat',
-    'shadows',
-    'species',
-    'tm_learnset',
     'trainer',
-    'trainer_ai',
 ]
 
 generated_consts_root = meson.current_build_dir()

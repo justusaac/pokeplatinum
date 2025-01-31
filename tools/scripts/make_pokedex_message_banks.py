@@ -4,7 +4,7 @@ import json
 import pathlib
 import xml.etree.ElementTree as ET
 
-from consts.species import PokemonSpecies
+from generated.species import Species
 
 argparser = argparse.ArgumentParser(
     prog='make_pokedex_message_banks_py',
@@ -58,7 +58,7 @@ def Convert_Height(decimeters):
     return f'  {feet}’{inches:02}”'
 
 # variables
-NUM_POKEMON = len(PokemonSpecies)
+NUM_POKEMON = len(Species)
 
 name_data = ['' for i in range(NUM_POKEMON)]
 name_articles = ['' for i in range(NUM_POKEMON)]
@@ -112,17 +112,17 @@ for i, file in enumerate(args.src_files):
         weights_gira[i] = '????.? lbs.'
 
 fileNames = [
-    'message_bank_species_names.gmm',
-    'message_bank_species_names_with_articles.gmm',
-    'message_bank_species_dex_entry.gmm',
-    'message_bank_species_weight.gmm',
-    'message_bank_species_weight_gira.gmm',
-    'message_bank_species_height.gmm',
-    'message_bank_species_height_gira.gmm',
-    'message_bank_species_name_number_1.gmm',
-    'message_bank_species_name_number_2.gmm',
-    'message_bank_species_name_number_3.gmm',
-    'message_bank_species_category.gmm'
+    'species_names.gmm',
+    'species_names_with_articles.gmm',
+    'species_dex_entry.gmm',
+    'species_weight.gmm',
+    'species_weight_gira.gmm',
+    'species_height.gmm',
+    'species_height_gira.gmm',
+    'species_name_number_1.gmm',
+    'species_name_number_2.gmm',
+    'species_name_number_3.gmm',
+    'species_category.gmm'
 ]
 fileKeys = [
     '30764',
@@ -179,7 +179,7 @@ for file in range(len(fileNames)):
 
         attribute = ET.SubElement(row, 'attribute')
         attribute.set('name', 'window_context_name')
-        if (((fileNames[file] == 'message_bank_species_names_with_articles.gmm') or (fileNames[file] == 'message_bank_species_dex_entry.gmm')) and (i == 0)):
+        if (((fileNames[file] == 'species_names_with_articles.gmm') or (fileNames[file] == 'species_dex_entry.gmm')) and (i == 0)):
             attribute.text = 'garbage'
             language = ET.SubElement(row, 'language')
             language.set('name', 'English')
